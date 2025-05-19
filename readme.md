@@ -1,1 +1,1 @@
-#React learning started from 18 may.
+#React learning started on 18 may.
