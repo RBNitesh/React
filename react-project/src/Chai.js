@@ -1,5 +1,5 @@
 function Chai() {
-  return <h1>Chai is favourite drink</h1>;
+  return <h1>Chai is my favourite drink</h1>;
 }
 
 export default Chai;
