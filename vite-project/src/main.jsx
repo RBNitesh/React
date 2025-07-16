@@ -12,14 +12,14 @@ function MyApp() {
   );
 }
 
-// const reactElement = {
-//   type: "a",
-//   props: {
-//     href: "https://google.com",
-//     target: "_blank",
-//   },
-//   children: "Click me to visit google",
-// };
+const reactElement = {
+  type: "a",
+  props: {
+    href: "https://google.com",
+    target: "_blank",
+  },
+  children: "Click me to visit google",
+};
 
 const anotherEle = (
   <a href="https://google.com" target="_blank">
@@ -29,20 +29,20 @@ const anotherEle = (
 
 const anotherUser = " chai aur react";
 
-const reactElement = React.createElement(
-  "a",
-  { href: "https://google.com", target: "_blank" },
-  "click here visit my website",
-  anotherUser
-);
+// const reactElement = React.createElement(
+//   "a",
+//   { href: "https://google.com", target: "_blank" },
+//   "click here visit my website",
+//   anotherUser //evaluated expression
+// );
 
 createRoot(document.getElementById("root")).render(
-  reactElement
-  // anotherEle
-
-  // <>
-  //   <App />
-  //   <MyApp />
-  //   <Chai />
-  // </>
+  <>
+    reactElement
+    <>
+      <App />
+      <MyApp />
+      <Chai />
+    </>
+  </>
 );

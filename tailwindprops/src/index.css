@@ -1,0 +1,35 @@
+@imprt "tailwindcss";
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.905);
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: Arial sans-serif;
+}
+
+.student {
+  margin-top: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.722);
+  border-radius: 0.5rem;
+  background-color: rgba(153, 205, 50, 0.584);
+}
+
+.student p {
+  margin: 0;
+  font-size: 1.5em;
+  font-family: Arial, sans-serif;
+}
