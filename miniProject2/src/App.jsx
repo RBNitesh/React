@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import "./App.css";
 
 function App() {
@@ -6,6 +6,21 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
+
+  //useRef hook
+  const passwordRef = useRef(null);
+
+  //method to copy password to clipboard
+  const copyPasswordToClipboard = useCallback(() => {
+    passwordRef.current?.select();
+    // it is not necessary to set selection range for copying to clipboard
+    // but if you want to select a specific part of the password, you can uncomment the
+    // following line and adjust the range as needed
+    // for example, to select the first 10 characters:
+    // passwordRef.current?.setSelectionRange(0, 9);
+    window.navigator.clipboard.writeText(password);
+    console.log("Password copied to clipboard:", password);
+  }, [password]);
 
   //method to generate password
   const generatePassword = useCallback(() => {
@@ -45,8 +60,11 @@ function App() {
           name="password"
           placeholder="enter password"
           readOnly
+          ref={passwordRef}
         />
-        <button className="copy-btn">copy</button>
+        <button onClick={copyPasswordToClipboard} className="copy-btn">
+          copy
+        </button>
       </div>
       <div className="innerBox">
         <input
