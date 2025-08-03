@@ -8,6 +8,10 @@ import HooksMouse from "./HooksMouse.jsx";
 import MouseEvents from "./MouseEvents.jsx";
 import MouseContainer from "./MouseContainer.jsx";
 import IntervalHook from "./IntervalHook.jsx";
+import EffectHook from "./EffectHook.jsx";
+import EffectHook2 from "./EffectHook2.jsx";
+import UseMemo from "./UseMemo.jsx";
+import ExpensiveCalculation from "./ExpensiveCalculation.jsx";
 
 class Index extends Component {
   render() {
@@ -21,7 +25,11 @@ class Index extends Component {
         {/* <HooksMouse /> */}
         {/* <MouseEvents /> */}
         {/* <MouseContainer /> */}
-        <IntervalHook />
+        {/* <IntervalHook /> */}
+        {/* <EffectHook /> */}
+        {/* <EffectHook2 /> */}
+        {/* <UseMemo /> */}
+        <ExpensiveCalculation />
       </>
     );
   }
