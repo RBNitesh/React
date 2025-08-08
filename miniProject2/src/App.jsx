@@ -47,7 +47,7 @@ function App() {
   //useEffect to call generatePassword when dependencies change
   useEffect(() => {
     generatePassword();
-  }, [length, numberAllowed, charAllowed, generatePassword]);
+  }, [length, numberAllowed, charAllowed]);
 
   return (
     <div className="box">

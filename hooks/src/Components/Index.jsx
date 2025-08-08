@@ -12,6 +12,7 @@ import EffectHook from "./EffectHook.jsx";
 import EffectHook2 from "./EffectHook2.jsx";
 import UseMemo from "./UseMemo.jsx";
 import ExpensiveCalculation from "./ExpensiveCalculation.jsx";
+import UseRefDemo from "./UseRefDemo.jsx";
 
 class Index extends Component {
   render() {
@@ -29,7 +30,8 @@ class Index extends Component {
         {/* <EffectHook /> */}
         {/* <EffectHook2 /> */}
         {/* <UseMemo /> */}
-        <ExpensiveCalculation />
+        {/* <ExpensiveCalculation /> */}
+        <UseRefDemo />
       </>
     );
   }
