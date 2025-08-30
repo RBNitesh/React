@@ -1,10 +1,11 @@
-import "./App.css";
+// import "./App.css";
 import Button from "@mui/material/Button";
+import WeatherApp from "./WeatherApp.jsx";
 
 function App() {
   return (
     <>
-      <Button variant="contained">Click me!</Button>
+      <WeatherApp />
     </>
   );
 }
