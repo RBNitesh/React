@@ -5,16 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import image from "./assets/image.jpg"; // adjust the path as needed
 
-export default function InfoBox() {
-  let info = {
-    city: "Delhi",
-    feelslike: 25,
-    temp: 30,
-    tempMin: 20,
-    tempMax: 35,
-    humidity: 60,
-    weather: "haze",
-  };
+export default function InfoBox({ info }) {
   return (
     <div className="InfoBox">
       <h1>WeatherInfo - {info.weather}</h1>
