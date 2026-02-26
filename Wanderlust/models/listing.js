@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// ceating the listing schema
 const listingSchema = new Schema({
   title: {
     type: String,
@@ -20,5 +21,7 @@ const listingSchema = new Schema({
   country: String,
 });
 
+// creating the listing model
 const Listing = mongoose.model("Listing", listingSchema);
+// exporting the listing model
 module.exports = Listing;
