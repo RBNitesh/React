@@ -1,11 +1,29 @@
 <!-- This is boilerplate template -->
  <% layout("/layouts/boilerplate") -%> 
- <body>
-    <h3>All Listings</h3>
+
+  <h3>All Listings</h3>
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for(let listing of allListings){ %>
+      <div class="card col" style="width: 20rem;">
+        <img src="<%= listing.image.url %>"class="card-img-top" alt="listing_image">
+        <div class="card-body">
+          <p class="card-text">
+            <%= listing.title %>
+            <br>
+            &#x20B9; <%= listing.price.toLocaleString("en-IN") %> / night
+          </p>
+        </div>
+      </div>
+    <% } %>
+  </div>
+    
+
     <!-- Create New Listing -->
-    <form method = "GET" action="/listings/new">
+     <!-- No need of that because now we have added the Add new Listing option in Navbar -->
+    <!-- <form method = "GET" action="/listings/new">
       <button>Create New Listing</button>
-    </form>
+    </form> -->
     <!-- Display the Listings -->
     <ul>
       <% for(let listing of allListings){ %>
@@ -14,7 +32,7 @@
         </li>
       <% } %>
     </ul>
-  </body>
+ 
 
 
 
