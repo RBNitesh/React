@@ -81,6 +81,11 @@ app.delete("/listings/:id", async (req, res) => {
   res.redirect("/listings");
 });
 
+// If the request route doesn't match to any of the path
+app.use((req, res) => {
+  res.status(400).send("Page not found!");
+});
+
 // app.get("/testListing", async (req, res) => {
 //   let sampleListing = new Listing({
 //     title: "My new Villa",
