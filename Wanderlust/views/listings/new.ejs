@@ -8,35 +8,46 @@
     <div class="col-8">
       <br />
       <h3>Create your Listing</h3>
-      <form method="POST" action="/listings">
+      <form
+        method="POST"
+        action="/listings"
+        novalidate
+        class="needs-validation"
+      >
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
             name="listing[title]"
-            placeholder="enter title"
+            placeholder="Enter title"
             type="text"
             class="form-control"
+            required
           />
+          <div class="invalid-feedback">Please enter the title</div>
         </div>
 
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
           <textarea
             name="listing[description]"
-            placeholder="enter description"
+            placeholder="Enter description"
             class="form-control"
             id=""
+            required
           ></textarea>
+          <div class="invalid-feedback">This is required</div>
         </div>
 
         <div class="mb-3">
           <label for="image" class="form-label">Image</label>
           <input
             name="listing[image]"
-            placeholder="enter URL/Link"
+            placeholder="Enter URL/Link"
             type="text"
             class="form-control"
+            required
           />
+          <div class="invalid-feedback">This is required</div>
         </div>
 
         <div class="row">
@@ -45,10 +56,11 @@
             <label for="price" class="form-label">Price</label>
             <input
               name="listing[price]"
-              placeholder="enter price"
-              type="number"
+              placeholder="Enter price"
               class="form-control"
+              required
             />
+            <div class="invalid-feedback">Please enter the valid Price</div>
           </div>
 
           <!-- Takes 8 columns on medium+ screens, full width on smaller screens -->
@@ -56,10 +68,14 @@
             <label for="country" class="form-label">Country</label>
             <input
               name="listing[country]"
-              placeholder="enter country"
+              placeholder="Enter country name"
               type="text"
               class="form-control"
+              required
             />
+            <div class="invalid-feedback">
+              Please enter the valid name of country
+            </div>
           </div>
         </div>
 
@@ -67,10 +83,12 @@
           <label for="location" class="form-label">Location</label>
           <input
             name="listing[location]"
-            placeholder="enter location"
+            placeholder="Enter location"
             type="text"
             class="form-control"
+            required
           />
+          <div class="invalid-feedback">Enter the valid Location</div>
         </div>
         <button class="btn btn-dark mb-3">Add</button>
       </form>
