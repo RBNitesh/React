@@ -39,13 +39,20 @@
         </div>
 
         <div class="mb-3">
-          <label for="image" class="form-label">Image</label>
+          <label for="image_name" class="form-label">Image Name</label>
           <input
-            name="listing[image]"
-            placeholder="Enter URL/Link"
+            name="listing[image][filename]"
+            placeholder="Enter filename"
             type="text"
             class="form-control"
-            required
+          />
+          <br />
+          <label for="image_url" class="form-label">Image URL</label>
+          <input
+            name="listing[image][url]"
+            placeholder="Enter image URL"
+            type="text"
+            class="form-control"
           />
           <div class="invalid-feedback">This is required</div>
         </div>

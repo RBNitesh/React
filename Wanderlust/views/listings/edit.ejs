@@ -6,7 +6,12 @@
     <div class="col-8 offset-2">
       <br />
       <h3>Edit your Listing</h3>
-      <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+      <form
+        method="POST"
+        action="/listings/<%= listing._id %>?_method=PUT"
+        novalidate
+        class="needs-validation"
+      >
         <div class="mb-3">
           <label for="title">Title</label>
           <input
@@ -15,6 +20,7 @@
             type="text"
             class="form-control"
           />
+          <div class="invalid-feedback">Please enter the title</div>
         </div>
 
         <div class="mb-3">
@@ -22,16 +28,27 @@
           <textarea name="listing[description]" id="" class="form-control">
             <%= listing.description %></textarea
           >
+          <div class="invalid-feedback">Please enter the short description</div>
         </div>
 
         <div class="mb-3">
-          <label for="image">Image</label>
+          <label for="image_name" class="form-label">Image Name</label>
           <input
-            name="listing[image]"
-            value="<%= listing.image && listing.image.url ? listing.image.url : '' %>"
+            name="listing[image][filename]"
+            placeholder="Enter filename"
             type="text"
             class="form-control"
           />
+          <br />
+          <label for="image_url" class="form-label">Image URL</label>
+          <input
+            name="listing[image][url]"
+            placeholder="Enter image URL"
+            type="text"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter the image of property</div>
         </div>
 
         <div class="row">
@@ -43,6 +60,7 @@
               type="number"
               class="form-control"
             />
+            <div class="invalid-feedback">Please enter the valid price</div>
           </div>
 
           <div class="mb-3 col-md-8">
@@ -53,6 +71,7 @@
               type="text"
               class="form-control"
             />
+            <div class="invalid-feedback">Please enter the country name</div>
           </div>
         </div>
 
@@ -64,6 +83,7 @@
             type="text"
             class="form-control"
           />
+          <div class="invalid-feedback">Please enter the location</div>
         </div>
 
         <button class="btn edit-btn btn-dark mb-3">Update</button>
