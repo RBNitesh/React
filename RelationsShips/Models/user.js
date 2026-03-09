@@ -67,36 +67,44 @@ const Order = mongoose.model("Order", orderSchema);
 const customerSchema = new Schema({
   name: String,
   // Got this type for ObjectId from mongoose populate section
-  orders: [{ type: Schema.Types.ObjectId, ref: "Story" }],
+  orders: [{ type: Schema.Types.ObjectId, ref: "Order" }],
 });
 
 const Customer = mongoose.model("Customer", customerSchema);
 
-const addCustomer = async () => {
-  let order1 = await Order.findOne({ item: "Samosa" });
-  let order2 = await Order.findOne({ item: "Tea" });
-  let order3 = await Order.findOne({ item: "Cake" });
+// const addCustomer = async () => {
+//   let order1 = await Order.findOne({ item: "Samosa" });
+//   let order2 = await Order.findOne({ item: "Tea" });
+//   let order3 = await Order.findOne({ item: "Cake" });
 
-  let customer1 = {
-    name: "Zyan",
-    orders: [order1, order2, order3],
-  };
+//   let customer1 = {
+//     name: "Zyan",
+//     orders: [order1, order2, order3],
+//   };
 
-  let res = await Customer.insertOne(customer1);
-  console.log(res);
-};
+//   let res = await Customer.insertOne(customer1);
+//   console.log(res);
+// };
 
-const addCustomer = async () => {
-  let order1 = await Order.findOne({ item: "Samosa" });
-  let order2 = await Order.findOne({ item: "Tea" });
+// const addCustomer = async () => {
+//   let order1 = await Order.findOne({ item: "Samosa" });
+//   let order2 = await Order.findOne({ item: "Tea" });
 
-  let customer2 = new Customer({
-    name: "Jiva",
-    orders: [order1, order2],
-  });
+//   let customer2 = new Customer({
+//     name: "Jiva",
+//     orders: [order1, order2],
+//   });
 
-  let res = await customer2.save();
-  console.log(res);
-};
+//   let res = await customer2.save();
+//   console.log(res);
+// };
 
 // addCustomer();
+
+// Populate method
+const findCustomer = async function () {
+  let res = await Customer.find({}).populate("orders");
+  console.log(res);
+};
+
+findCustomer();
