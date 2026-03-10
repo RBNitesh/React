@@ -64,7 +64,7 @@ body {
 }
 
 /* Card Styling */
-.card {
+.listing-card {
   border: none !important;
   margin-bottom: 2rem;
   /* font-style: italic; */
