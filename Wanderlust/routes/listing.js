@@ -1,5 +1,9 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({
+  caseSensitive: true,
+  mergeParams: true,
+  strict: true,
+});
 
 const methodOverride = require("method-override");
 const Listing = require("../models/listing");
