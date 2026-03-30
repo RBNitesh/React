@@ -50,14 +50,26 @@ app.set("views", path.join(__dirname, "views"));
 app.get("/register", (req, res) => {
   let { name = "anonymous" } = req.query;
   req.session.name = name;
-  req.flash("success", "user registered successfully!");
+  if (name === "anonymous") {
+    req.flash("error", "user not registered!");
+  } else {
+    req.flash("success", "user registered successfully!");
+  }
   res.redirect("/hello");
 });
 
+app.use((req, res, next) => {
+  res.locals.errMessage = req.flash("error");
+  res.locals.successMessage = req.flash("success");
+  next();
+});
+
 app.get("/hello", (req, res) => {
+  // we can use middleware for this
+  // res.locals.errorMessage = req.flash("error");
+  // res.locals.successMessage = req.flash("success");
   res.render("page.ejs", {
     name: req.session.name,
-    msg: req.flash("success"),
   });
   //   res.send(`hello, ${req.session.name}`);
   //   res.redirect("/register");

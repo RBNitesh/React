@@ -31,7 +31,9 @@
     <!-- Includeing navbar using include -->
     <%- include("../includes/navbar.ejs") %>
 
-    <div class="container"><%- body %></div>
+    <div class="container">
+      <%- include("../includes/flash.ejs") %> <%- body %>
+    </div>
 
     <!-- Includeing footer using include -->
     <%- include("../includes/footer.ejs") %>
