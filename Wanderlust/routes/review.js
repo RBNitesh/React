@@ -9,6 +9,7 @@ const asyncWrapper = require("../utils/asyncWrapper.js");
 const ExpressError = require("../utils/ExpressError.js");
 
 const validateReview = (req, res, next) => {
+  // Reject malformed review submissions before touching Listing or Review collections.
   let { err } = reviewSchema.validate(req.body);
   if (err) {
     throw new ExpressError(400, err);
@@ -25,6 +26,7 @@ router.post(
     let listing = await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review);
 
+    // Store the review reference on the listing so populate("reviews") can fetch it later.
     listing.reviews.push(newReview);
 
     await newReview.save();
@@ -42,6 +44,7 @@ router.delete(
   asyncWrapper(async (req, res) => {
     let { id, reviewId } = req.params;
 
+    // Remove the reference from the listing first, then delete the review document itself.
     await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
     await Review.findByIdAndDelete(reviewId);
 

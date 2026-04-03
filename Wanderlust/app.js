@@ -42,6 +42,7 @@ const sessionOptions = {
   resave: false,
   saveUninitialized: true,
   cookie: {
+    // Keep the login session alive for 3 days in the browser.
     expires: Date.now() + 3 * 24 * 60 * 60 * 1000,
     maxAge: 3 * 24 * 60 * 60 * 1000,
     httpOnly: true,
@@ -57,12 +58,14 @@ app.get("/", (req, res) => {
 });
 
 app.use((req, res, next) => {
+  // Expose flash messages to every EJS view through res.locals.
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   next();
 });
 
 app.use("/listings", listings);
+// mergeParams in the reviews router lets it read the parent listing id from this route.
 app.use("/listings/:id/reviews", reviews);
 
 // If the request route doesn't match to any of the path

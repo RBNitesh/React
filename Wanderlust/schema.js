@@ -1,5 +1,6 @@
 const Joi = require("joi");
 
+// The Joi shape mirrors the nested names used by the HTML form fields.
 const listingSchema = Joi.object({
   listing: Joi.object({
     title: Joi.string().required(),
@@ -14,6 +15,7 @@ const listingSchema = Joi.object({
   }).required(),
 });
 
+// Reviews are submitted under req.body.review from the listing show page form.
 const reviewSchema = Joi.object({
   review: Joi.object({
     rating: Joi.number().required().min(1).max(5),

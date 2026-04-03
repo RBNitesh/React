@@ -24,6 +24,7 @@ const listingSchema = new Schema({
   reviews: [
     {
       type: Schema.Types.ObjectId,
+      // Each stored id points to a Review document in the separate reviews collection.
       ref: "Review",
     },
   ],
@@ -32,6 +33,7 @@ const listingSchema = new Schema({
 // deletes the reviews of a listing with its deletion
 listingSchema.post("findOneAndDelete", async (listing) => {
   if (listing) {
+    // Clean up child reviews so the database does not keep orphaned review documents.
     await Review.deleteMany({ _id: { $in: listing.reviews } });
   }
 });
